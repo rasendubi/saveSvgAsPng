@@ -275,9 +275,7 @@
       });
 
       if (excludeCss) {
-        const outer = document.createElement('div');
-        outer.appendChild(clone);
-        const src = outer.innerHTML;
+        const src = new XMLSerializer().serializeToString(clone);
         if (typeof done === 'function') done(src, width, height);
         else return {src, width, height};
       } else {
@@ -290,9 +288,9 @@
           defs.appendChild(style);
           clone.insertBefore(defs, clone.firstChild);
 
-          const outer = document.createElement('div');
-          outer.appendChild(clone);
-          const src = outer.innerHTML.replace(/NS\d+:href/gi, 'xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href');
+          const src = new XMLSerializer()
+                .serializeToString(clone)
+                .replace(/NS\d+:href/gi, 'xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href');
 
           if (typeof done === 'function') done(src, width, height);
           else return {src, width, height};
