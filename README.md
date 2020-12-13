@@ -1,9 +1,11 @@
 # saveSvgAsPng
 
+This package is a fork of [exupero/saveSvgAsPng](https://github.com/exupero/saveSvgAsPng). The original repository is now archived.
+
 ## Installation
 
 ```
-npm install save-svg-as-png
+npm install @rasendubi/save-svg-as-png
 ```
 
 ## Prerequisites
